@@ -22,17 +22,17 @@ public class fileRead {
 			System.out.println("File not found! \nexiting...");
 			return;
 		}
-		
+		String line = "";
 		//FileReader fRead = new FileReader (fName);
 		
-		if (fAccess)
+		//if (fAccess) 					// FIX ME: CHECK IF FILE IS EMPTY OR EVEN A TXT FILE!
 		
-		try (FileReader fRead = new FileReader (fName); 
-			 BufferedReader bRead = new BufferedReader (fRead);){
-			
-			do {
+		try (FileReader fRead = new FileReader (fName); // FIX ME: PARSE TXT FILE FOR DESIRED INPUT AND ESTABLISH CHECKS!
+			 Scanner scanFile = new Scanner (fRead);){
+			line = scanFile.next();
+			while (line != null) {
 				
-			} while (line != null)
+			}
 			
 		}
 		catch(IOException e){
