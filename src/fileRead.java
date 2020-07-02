@@ -25,10 +25,14 @@ public class fileRead {
 		
 		//FileReader fRead = new FileReader (fName);
 		
+		if (fAccess)
 		
 		try (FileReader fRead = new FileReader (fName); 
 			 BufferedReader bRead = new BufferedReader (fRead);){
 			
+			do {
+				
+			} while (line != null)
 			
 		}
 		catch(IOException e){
