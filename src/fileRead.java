@@ -38,7 +38,7 @@ public class fileRead {
 			//line = scanFile.next();
 			while (scanFile.hasNext()) {
 				line = scanFile.next();
-				for (int i = line.length() - 1; ((i >= 0) && (line.length() > 3)); i--) {
+				for (int i = line.length() - 1; ((i >= 0) && (line.length() > 3)); i--) { 	//FIX ME: DO NOT PROCESS ALPHANUMERALS!
 					temp += line.charAt(i);
 				}
 				if (temp.length() > 3) {
