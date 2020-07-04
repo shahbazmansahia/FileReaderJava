@@ -29,14 +29,14 @@ public class fileRead {
 		String line = "";
 		//FileReader fRead = new FileReader (fName);
 		
-		//if (fAccess) 					// FIX ME: CHECK IF FILE IS EMPTY OR EVEN A TXT FILE!
+		//if (fAccess) 					// FIX ME: CHECK IF IS EVEN A TXT FILE!
 		
 		if (fAccess.length() == 0) {	// Checks if file is empty or not
 			System.out.println("The file is empty!\nexiting...");
 			return;
 		}
 		
-		try (FileReader fRead = new FileReader (fName); // FIX ME: PARSE TXT FILE FOR DESIRED INPUT AND ESTABLISH CHECKS!
+		try (FileReader fRead = new FileReader (fName);
 			 Scanner scanFile = new Scanner (fRead);){
 			//line = scanFile.next();
 			while (scanFile.hasNext()) {
@@ -44,7 +44,7 @@ public class fileRead {
 				
 				
 				/*
-				for (int i = line.length() - 1; ((i >= 0) && (line.length() > 3)); i--) { 	//FIX ME: DO NOT PROCESS ALPHANUMERALS!
+				for (int i = line.length() - 1; ((i >= 0) && (line.length() > 3)); i--) {
 					temp += line.charAt(i);
 				}
 				*/
@@ -61,12 +61,24 @@ public class fileRead {
 				System.out.println(line + "\n");
 				//temp = "";
 			}
-			
+			//System.out.println ("I got till here!");
+			/*
 			for (Map.Entry <String, Integer> i: stringSet.entrySet()) {
-				if (i.getValue() >= 5) {
+				System.out.println ("I got till here! " + i);				
+			}
+			*/
+			
+			for (Map.Entry <String, Integer> i: stringSet.entrySet()) { // FIX ME: TEST WITH LARGER FREQ. OF WORDS!
+				System.out.println ("I got till here! " + i);
+				
+				if (stringSet.get(i.getKey()) >= 5) {
+					//System.out.println ("I got till here!");
+					
 					for (int j = i.getKey().length() - 1; j >= 0; j++) {
 						temp = Character.isLetter(i.getKey().charAt(j)) ? temp + i.getKey().charAt(j) : temp;
 					}
+					System.out.println ("I got till here!");
+					
 					System.out.println (temp + "\n");
 					revWords.add(temp);
 				}
