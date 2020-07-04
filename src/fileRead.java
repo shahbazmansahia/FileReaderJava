@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Vector;
 import java.util.Scanner;
 import java.util.TreeMap;
@@ -59,6 +60,16 @@ public class fileRead {
 				}
 				System.out.println(line + "\n");
 				//temp = "";
+			}
+			
+			for (Map.Entry <String, Integer> i: stringSet.entrySet()) {
+				if (i.getValue() >= 5) {
+					for (int j = i.getKey().length() - 1; j >= 0; j++) {
+						temp = Character.isLetter(i.getKey().charAt(j)) ? temp + i.getKey().charAt(j) : temp;
+					}
+					System.out.println (temp + "\n");
+					revWords.add(temp);
+				}
 			}
 			
 			scanFile.close();
