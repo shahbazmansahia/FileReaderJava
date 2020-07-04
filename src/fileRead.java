@@ -58,7 +58,7 @@ public class fileRead {
 					}
 					//revWords.add(line);
 				}
-				System.out.println(line + "\n");
+				//System.out.println(line + "\n");
 				//temp = "";
 			}
 			//System.out.println ("I got till here!");
@@ -68,19 +68,21 @@ public class fileRead {
 			}
 			*/
 			
-			for (Map.Entry <String, Integer> i: stringSet.entrySet()) { // FIX ME: TEST WITH LARGER FREQ. OF WORDS!
-				System.out.println ("I got till here! " + i);
+			for (Map.Entry <String, Integer> i: stringSet.entrySet()) { 
+				//System.out.println ("I got till here! " + i);
 				
 				if (stringSet.get(i.getKey()) >= 5) {
 					//System.out.println ("I got till here!");
 					
-					for (int j = i.getKey().length() - 1; j >= 0; j++) {
+					for (int j = i.getKey().length() - 1; j >= 0; j--) {
 						temp = Character.isLetter(i.getKey().charAt(j)) ? temp + i.getKey().charAt(j) : temp;
 					}
-					System.out.println ("I got till here!");
+					//System.out.println ("I got till here!");
 					
-					System.out.println (temp + "\n");
+					System.out.println (temp);
+					
 					revWords.add(temp);
+					temp = "";
 				}
 			}
 			
