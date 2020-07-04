@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Vector;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class fileRead {
 	
@@ -13,6 +14,7 @@ public class fileRead {
 		Scanner scan = new Scanner (System.in);
 		fName = scan.nextLine();
 		String temp = "";
+		TreeMap <String, Integer> stringSet = new TreeMap <String, Integer> ();
 		
 		File fAccess = new File (fName);
 		
@@ -38,14 +40,25 @@ public class fileRead {
 			//line = scanFile.next();
 			while (scanFile.hasNext()) {
 				line = scanFile.next();
+				
+				
+				/*
 				for (int i = line.length() - 1; ((i >= 0) && (line.length() > 3)); i--) { 	//FIX ME: DO NOT PROCESS ALPHANUMERALS!
 					temp += line.charAt(i);
 				}
-				if (temp.length() > 3) {
-					revWords.add(temp);
+				*/
+				
+				if (line.length() > 3) {
+					if (!stringSet.containsKey(line)) {
+						stringSet.put(line, 1);
+					}
+					else {
+						stringSet.put(line, stringSet.get(line) + 1);
+					}
+					//revWords.add(line);
 				}
-				System.out.println(temp + "\n");
-				temp = "";
+				System.out.println(line + "\n");
+				//temp = "";
 			}
 			
 			scanFile.close();
